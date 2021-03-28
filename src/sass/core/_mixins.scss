@@ -1,0 +1,103 @@
+@function em($target, $context: $font-size){
+	@if $target == 0 {
+		@return 0
+	}
+	@return $target / $context + 0em;
+};
+
+@function cp($target, $context: $center-width){
+	@if $target == 0 {
+		@return 0 
+	}
+	@return $target / $context * 100%
+};
+
+@mixin reset-btn(){
+	border: none;
+	background: none;
+	outline: none;
+	margin: 0px;
+	padding: 0px;
+	cursor: pointer;
+}
+
+@mixin parent(){
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+}
+
+@mixin font($size, $w){
+	font-size: $size;
+	font: $font;
+	font-weight: $w
+}
+
+@mixin transition(){
+		transition: 100ms linear;
+	}
+@mixin transition_hover(){
+				text-decoration: none;
+				color: #3E89F4;
+}
+
+@mixin scroller($width){
+	width: 100%;
+	max-width: $width;
+	min-width: $width;
+	height: 5px;
+	outline: none; 
+	margin-top: -2px;
+	background-color: #DCDCDC;
+	border-radius: 0px 0px 2px 2px;
+	cursor: pointer;
+	display: flex;
+}
+
+@mixin button(){
+		background: $blue;
+		color: #fff;
+		padding: 25px; 
+		border-radius: 5px;
+		font-family: $font;
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 1;
+		box-shadow: 0px 4px 20px rgba(62, 137, 244, 0.3);
+		transition: 1s;
+
+	}
+@mixin button__hover(){
+			background: #5EA0FF;
+			transition: 1s;
+}
+
+@mixin footer(){
+	font-family: $font;
+	font-size: 14px;
+	font-weight: normal;
+	display: block;
+	text-align: center;
+	z-index: 1;
+	
+	ul li {
+		list-style: none;
+		float: left;}
+		a {
+			display: block;
+			width: auto;
+			margin-left: 50px;
+			padding-top: 21px;
+			font-family: $font;
+			font-weight: 400;
+			line-height: 1;
+			font-size: 16px;
+			transition: 100ms linear;
+			color: #fff;
+		}
+		a:hover{
+				text-decoration: none;
+				}
+}
