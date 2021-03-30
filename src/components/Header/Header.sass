@@ -16,9 +16,9 @@
   position: relative
   height: auto
   margin: 0 auto
-  padding: 0
   align-content: center
-  margin-left: -20px
+
+
 
 header
   height: 66px
@@ -26,11 +26,9 @@ header
   max-width: 1920px
   min-width: 1920px
   align-content: center
-  position: absolute
+
   background-color: white
-  margin: 0 auto
-  margin-top: 0px
-    //z-index: 1
+
   font: $font
 
   a
@@ -38,7 +36,9 @@ header
 
 
 .header-block
+  grid-area: h
   display: grid
+  position: relative
 
 
   grid-template-columns: 460px 510px 190px 190px
@@ -72,7 +72,7 @@ header
   width: 510px
   margin-top: 5px
   text-align: center
-  z-index: 1
+
   margin-right: 0px
 
   grid-area: menu

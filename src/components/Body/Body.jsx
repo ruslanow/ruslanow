@@ -1,12 +1,13 @@
 import React from 'react';
-import './Body.sass';
-import {NavLink} from 'react-router-dom';
-
+import styles from './Body.module.sass';
+import Post from "./BodyComponents/Posts";
 
 
 let Body = (props) => {
     return (
-        <div></div>
+        <div className={styles.block}>
+            <Post posts={props.posts}/>
+        </div>
     );
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.sass';
+import '../Body/Body.module.sass'
 import logo from "../../assets/img/header-lupa.svg";
 import {NavLink} from 'react-router-dom';
 
