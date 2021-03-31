@@ -10,7 +10,7 @@ let Header = () => {
         <header>
             <div className="container">
                 <div className="header-block">
-                    <div className="logotip">
+                    <div className="logotype">
                         <h2><NavLink to='/'>Социально-Кредитная сеть</NavLink></h2>
                     </div>
                     <div className="top__menu">

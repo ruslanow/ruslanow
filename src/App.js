@@ -8,37 +8,23 @@ import {Route, BrowserRouter} from 'react-router-dom';
 import Post from "./components/Body/BodyComponents/Posts";
 
 
-function App() {
+function App(props) {
 
-    let postsData = [
-        { name: 'Nikola', messagePost: 'Hi, Bro! Its was really useful info'},
-        { name: 'Viktor', messagePost: 'Yo Yo'},
-        { name: 'Artem', messagePost: 'In touch!'},
-        { name: 'Tesla', messagePost: 'You can do it'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'}
-    ]
 
     return (
         <BrowserRouter>
             <React.Fragment>
             <div id =  "main__intro">
+                <Header />
 
-                <Route exact path='/' render={ () => <Header />}/>
-                <Route exact path='/help' render={ () => <Header />}/>
-                <Route exact path='/podat-obyavlenie' render={ () => <Header />}/>
-                <Route exact path='/all-announcement' render={ () => <Header />}/>
-                <Route exact path='/search' render={ () => <Header />}/>
-                <Route exact path='/help' render={ () => <Header />}/>
+                <Body  postsData={props.state.postsData} />
 
-                <Body  posts={postsData} />
-                <div></div>
+                <Route exact path='/' render={ () => <footer />}/>
+                <Route exact path='/help' render={ () => <footer />}/>
+                <Route exact path='/podat-obyavlenie' render={ () => <footer />}/>
+                <Route exact path='/all-announcement' render={ () => <footer />}/>
+                <Route exact path='/search' render={ () => <footer />}/>
+                <Route exact path='/help' render={ () => <footer />}/>
             </div>
 
             </React.Fragment>
