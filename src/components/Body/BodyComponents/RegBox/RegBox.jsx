@@ -1,9 +1,9 @@
-import styles from "./AboutUs.module.sass";
+import styles from "./RegBox.module.sass";
 import React from "react";
 import logo from './../../../../assets/img/123.png'
 import {NavLink} from "react-router-dom";
 
-let AboutUs = (props) => {
+let RegBox = (props) => {
     return (
             <div className={styles.intro}>
                 <h1> Кредиты под залог имущества </h1>
@@ -27,4 +27,4 @@ let AboutUs = (props) => {
 
 
 
-export default AboutUs;
+export default RegBox;

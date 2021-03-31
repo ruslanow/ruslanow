@@ -1,9 +1,8 @@
 import React from 'react';
 import './Posts.module.sass';
 // import PostItem from "./PostItem/PostItem";
-import styles from "./PostItem/PostItem.module.sass";
-import logo from "../../../assets/img/rocket.png";
-// import PostItem from "./PostItem/PostItem";
+import styles from "./Posts.module.sass";
+import logo from "../../../../assets/img/file.png";
 
 const PostItem = (props) => {
 

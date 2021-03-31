@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer';
 import Body from "./components/Body/Body";
 
 import {Route, BrowserRouter} from 'react-router-dom';
-import Post from "./components/Body/BodyComponents/Posts";
+// import Post from "./components/Body/BodyComponents/Posts/Posts";
 
 
 function App(props) {

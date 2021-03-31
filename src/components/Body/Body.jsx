@@ -1,14 +1,16 @@
 import React from 'react';
 import styles from './Body.module.sass';
-import Post from "./BodyComponents/Posts";
-import AboutUs from "./BodyComponents/AboutUsBlock/AboutUs";
+import Post from "./BodyComponents/Posts/Posts";
+import RegBox from "./BodyComponents/RegBox/RegBox";
+import AboutUs from "./BodyComponents/AboutUs/AboutUs";
 
 
 let Body = (props) => {
     return (
         <div className={styles.block}>
-            <AboutUs />
+            <RegBox />
             <Post postsData={props.postsData}/>
+            <AboutUs />
 
          </div>
     );
