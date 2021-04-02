@@ -1,33 +1,31 @@
-let postsData = [
-    { name: 'Nikola', messagePost: 'Hi, Bro! Its was really useful info'},
-    { name: 'Viktor', messagePost: 'Yo Yo'},
-    { name: 'Artem', messagePost: 'In touch!'},
-    { name: 'Tesla', messagePost: 'You can do it'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'},
-    { name: 'Michael', messagePost: 'Never give up!'}
-]
+import rerenderEntireTree from "../rerenderEntireTree";
+
 
 let state = {
     postsData: [
         { name: 'Nikola', messagePost: 'Hi, Bro! Its was really useful info'},
-        { name: 'Viktor', messagePost: 'Yo Yo'},
-        { name: 'Artem', messagePost: 'In touch!'},
-        { name: 'Tesla', messagePost: 'You can do it'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'},
-        { name: 'Michael', messagePost: 'Never give up!'}
     ],
+    newTexMessage: 'ad'
+
+}
+
+
+export let addPost = (postMessage) => {
+
+    let newPost = {
+        name: 'Roma',
+        messagePost: postMessage
+    }
+
+    state.postsData.push(newPost);
+    rerenderEntireTree(state)
+
+}
+
+export let updatePostText = (postMessage) => {
+
+    state.newTexMessage = postMessage;
+    rerenderEntireTree(state)
 
 }
 

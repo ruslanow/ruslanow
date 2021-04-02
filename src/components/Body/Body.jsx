@@ -6,11 +6,18 @@ import AboutUs from "./BodyComponents/AboutUs/AboutUs";
 
 
 let Body = (props) => {
+
+    debugger
     return (
         <div className={styles.block}>
             <RegBox />
-            <Post postsData={props.postsData}/>
+
             <AboutUs />
+            <Post postsData={props.state.postsData}
+                  addPost = {props.addPost}
+                  newTexMessage={props.state.newTexMessage}
+                  updatePostText = {props.updatePostText}
+            />
 
          </div>
     );

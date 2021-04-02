@@ -2,20 +2,22 @@ import React from 'react';
 import './Posts.module.sass';
 // import PostItem from "./PostItem/PostItem";
 import styles from "./Posts.module.sass";
-import logo from "../../../../assets/img/file.png";
+import logo from "../../../../assets/img/rocket.png";
 
 const PostItem = (props) => {
 
     return (
-        <div className={styles.block}>
-            <div className={styles.profileInfo}>
-                <img src={logo} width="40px" height="40px" alt=""/>
-                <div className={styles.name}>
-                    <h2>{props.name}</h2>
+        <div>
+            <div className={styles.block}>
+                <div className={styles.profileInfo}>
+                    <img src={logo} width="40px" height="40px" alt=""/>
+                    <div className={styles.name}>
+                        <h2>{props.name}</h2>
+                    </div>
                 </div>
-            </div>
-            <div className={styles.message}>
-                <h3>{props.messagePost}</h3>
+                <div className={styles.message}>
+                    <h3>{props.messagePost}</h3>
+                </div>
             </div>
         </div>
     );
@@ -24,16 +26,35 @@ const PostItem = (props) => {
 
 
 const Post = (props) => {
-
-
     let postElement = props.postsData
-      .map( p => <PostItem name={p.name} messagePost={p.messagePost} />);
+        .map(p => <PostItem name={p.name} messagePost={p.messagePost}/>);
 
-    return(
+    let newPostElement =
+        React.createRef();
+
+    let addPost = () => {
+        let t = newPostElement.current.value;
+        props.addPost(t);
+        props.updatePostText ('');
+    }
+
+    let onPostChange = () => {
+        let t = newPostElement.current.value;
+        props.updatePostText (t);
+    }
+
+    return (
         <div>
+            <div className={styles.addPost}>
+                <textarea ref={newPostElement} value={props.newTexMessage} onChange={onPostChange}/>
+                <button onClick={addPost}>Click Me</button>
+            </div>
             {postElement}
         </div>
     )
+}
+
+{/*onChange={} ref={} value={} className={} */
 }
 
 export default Post;
