@@ -1,5 +1,6 @@
-import rerenderEntireTree from "../rerenderEntireTree";
-
+let rerenderEntireTree = () => {
+    console.log('sss')
+}
 
 let state = {
     postsData: [
@@ -10,23 +11,38 @@ let state = {
 }
 
 
-export let addPost = (postMessage) => {
-
-    let newPost = {
-        name: 'Roma',
-        messagePost: postMessage
-    }
-
-    state.postsData.push(newPost);
-    rerenderEntireTree(state)
-
-}
-
-export let updatePostText = (postMessage) => {
+export const updatePostText = (postMessage) => {
 
     state.newTexMessage = postMessage;
     rerenderEntireTree(state)
 
 }
+
+function isBlank() {
+    return (this.length === 0 || !this.trim());
+}
+
+export const addPost = () => {
+
+    let newPost = {
+        name: 'Roma',
+        messagePost: state.newTexMessage
+    }
+
+    if (newPost.messagePost.length === 0 || !newPost.messagePost.trim()){
+        rerenderEntireTree(state)
+    }
+    else{
+        state.postsData.push(newPost)
+        rerenderEntireTree(state)
+    }
+    state.newTexMessage = ''
+
+}
+
+export let subscribe = (observer) => {
+    rerenderEntireTree  = observer;
+}
+
 
 export default state;

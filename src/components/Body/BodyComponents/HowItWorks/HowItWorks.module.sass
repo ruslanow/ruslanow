@@ -1,0 +1,105 @@
+@import "../../../../sass/core/core"
+
+.flex
+  width: 360px
+  padding-left: 120px
+  padding-top: 15px
+  margin: 0
+.block
+  display: block
+  position: static
+  background-color: #F7F7F7
+  width: 100%
+  max-width: 1920px
+  height: 352px
+  margin-left: 0
+  h1
+    margin: 0
+    @include font(36px, 600)
+    padding-left: 120px
+    padding-top: 55px
+
+  ul
+    display: flex
+    justify-content: space-around
+
+    li
+      @include font(21px, 400)
+    a
+      @include transition()
+    a:active
+      @include transition_hover()
+
+.link
+  cursor: pointer
+  color: #B1B1B1
+  transition: 100ms linear
+  &:hover
+    text-decoration: none
+    color: $blue
+  &:checked
+    background-color: $blue
+
+.borrower
+  color: $blue
+.body
+  display: flex
+  justify-content: space-around
+  padding-left: 60px
+  padding-right: 60px
+  img
+    width: 100%
+    padding-bottom: 160px
+    margin-right: 30px
+    float: left
+
+
+.box
+  padding-top: 50px
+  width: 100%
+  max-width: 287px
+
+
+.title
+  @include font (20px, 700)
+  padding-bottom: 10px
+
+
+.text
+  @include font (15px, 400)
+
+.img1
+  width: 40px
+  height: 52px
+  margin-bottom: 50px
+  float: left
+  margin-right: 25px
+.img2
+  width: 45px
+  height: 52px
+  margin-bottom: 50px
+  float: left
+  margin-right: 25px
+.img3
+  width: 52px
+  height: 40px
+  margin-bottom: 50px
+  float: left
+  margin-right: 25px
+.img4
+  width: 52px
+  height: 45px
+  margin-bottom: 50px
+  float: left
+  margin-right: 25px
+
+.body2
+  display: none
+  justify-content: space-around
+  padding-left: 60px
+  padding-right: 60px
+  img
+    width: 100%
+    padding-bottom: 160px
+    margin-right: 30px
+    float: left

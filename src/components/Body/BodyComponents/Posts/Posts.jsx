@@ -32,15 +32,13 @@ const Post = (props) => {
     let newPostElement =
         React.createRef();
 
-    let addPost = () => {
-        let t = newPostElement.current.value;
-        props.addPost(t);
-        props.updatePostText ('');
-    }
-
     let onPostChange = () => {
         let t = newPostElement.current.value;
         props.updatePostText (t);
+    }
+
+    let addPost = () => {
+        props.addPost();
     }
 
     return (

@@ -1,16 +1,4 @@
-@function em($target, $context: $font-size){
-	@if $target == 0 {
-		@return 0
-	}
-	@return $target / $context + 0em;
-};
 
-@function cp($target, $context: $center-width){
-	@if $target == 0 {
-		@return 0 
-	}
-	@return $target / $context * 100%
-};
 
 @mixin reset-btn(){
 	border: none;
@@ -31,8 +19,9 @@
 
 @mixin font($size, $w){
 	font-size: $size;
-	font: $font;
-	font-weight: $w
+	font-family: $font;
+	font-weight: $w;
+	src: url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 }
 
 @mixin transition(){
