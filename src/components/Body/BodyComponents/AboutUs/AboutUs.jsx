@@ -16,7 +16,7 @@ let AboutUs = (props) => {
                     <h3 id="about__us__text">Социальная сеть кредитования</h3>
                     <p id="about__us__text">Наш сайт является социальной сетью по выдаче или получению займа под залог
                         недвижимости или авто.</p>
-                    <img src={logo1} alt="Иконка"/>
+                    <img src={logo1} alt="Иконка" />
                 </div>
                 <div className={styles.box}>
                     <h3 className="about__us__title">Кредит без банков и поручителей</h3>

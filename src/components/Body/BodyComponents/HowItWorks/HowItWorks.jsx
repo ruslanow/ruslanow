@@ -26,7 +26,7 @@ let HowItWorks = (props) => {
                 </div>
                 <div className={styles.body} >
                     <div className={styles.box}>
-                        <div className={styles.img1}><img src={img1}  /></div>
+                        <div className={styles.img1}><img src={img1} /></div>
                         <div className={styles.title}>Подача обьявления</div>
                         <div className={styles.text}>Вы подаете обьявление с запросом на кредит на нашем сайте
                         </div>

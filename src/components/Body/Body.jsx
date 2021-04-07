@@ -4,6 +4,9 @@ import Post from "./BodyComponents/Posts/Posts";
 import RegBox from "./BodyComponents/RegBox/RegBox";
 import AboutUs from "./BodyComponents/AboutUs/AboutUs";
 import HowItWorks from "./BodyComponents/HowItWorks/HowItWorks";
+import Calculator from "./BodyComponents/Calculator/Calculator";
+
+
 
 
 let Body = (props) => {
@@ -15,12 +18,10 @@ let Body = (props) => {
 
             <AboutUs />
             <HowItWorks />
+            <Calculator />
             <Post postsData={props.state.postsData}
-                  addPost = {props.addPost}
                   newTexMessage={props.state.newTexMessage}
-                  updatePostText = {props.updatePostText}
-            />
-
+                  dispatch = {props.dispatch} />
          </div>
     );
 }

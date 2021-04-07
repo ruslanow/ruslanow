@@ -3,6 +3,7 @@ import './Posts.module.sass';
 // import PostItem from "./PostItem/PostItem";
 import styles from "./Posts.module.sass";
 import logo from "../../../../assets/img/rocket.png";
+import {addPostChanger, onPostChangeChanger} from "../../../../redux/state";
 
 const PostItem = (props) => {
 
@@ -32,13 +33,15 @@ const Post = (props) => {
     let newPostElement =
         React.createRef();
 
+
+
     let onPostChange = () => {
         let t = newPostElement.current.value;
-        props.updatePostText (t);
+        props.dispatch (onPostChangeChanger(t));
     }
 
     let addPost = () => {
-        props.addPost();
+        props.dispatch (addPostChanger())
     }
 
     return (
