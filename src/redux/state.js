@@ -7,14 +7,32 @@ const UPDATE_DIALOG_TEXT = 'UPDATE_DIALOG_TEXT'
 let store = {
 
     _state: {
+        // Posts Functionality
         postsData: [
             {name: 'Nikola', messagePost: 'Hi, Bro! Its was really useful info'},
         ],
         newTexMessage: 'Напиши свой пост тут',
+
+
+        // Dialogs Functionality
+        usersData: [
+            {name: 'Yana Y.', id: '1'},
+            {name: 'Pedro T', id: '2'},
+            {name: 'Vika M.', id: '3'},
+            {name: 'Egor L.', id: '4'},
+            {name: 'Nikita G.', id: '5'},
+            {name: 'Liza O.', id: '6'},
+            {name: 'Olya K.', id: '7'},
+
+        ],
         usersInfo: [
-            {name: 'Nikola', id: '', messagePost: 'Its just test message'}
+            {name: 'Nikola', id: '', messagePost: 'It test message'},
+            {name: 'Nikola', id: '', messagePost: 'It test message'},
+            {name: 'Nikola', id: '', messagePost: 'It test message'},
         ],
         newDialogMessage: ''
+
+
 
     },         // "_" означает, что нельзя глобально использовать state
 
@@ -56,26 +74,32 @@ let store = {
                 this.rerenderEntireTree(this._state)
 
             }
+
+
         } else if (action.type === ADD_MESSAGE) {
 
+
                 let newMessage = {
+                    name: 'Nikola',
+                    id: '',
                     messagePost: this._state.newDialogMessage
                 }
-
+            debugger
                 if (newMessage.messagePost.length === 0 || !newMessage.messagePost.trim()) {
                     this.rerenderEntireTree(this._state)
                 } else {
-                    this._state.usersInfo.push(newMessage) 
+                    this._state.usersInfo.push(newMessage)
                     this.rerenderEntireTree(this._state)
                 }
-                this._state.newTexMessage = ''
+            this._state.newDialogMessage = ''
+
             }
+
         else if (action.type === UPDATE_DIALOG_TEXT) {
             {
 
                 this._state.newDialogMessage = action.dialogMessage;
-                this.rerenderEntireTree(this._state)
-
+                this.rerenderEntireTree(this._state);
             }
         }                    //Мы используем dispatch для управления функциями изменяющих UI
     }
