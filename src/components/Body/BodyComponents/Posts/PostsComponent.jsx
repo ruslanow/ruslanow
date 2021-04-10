@@ -1,9 +1,9 @@
 import React from 'react';
 import './Posts.module.sass';
-// import PostItem from "./PostItem/PostItem";
 import styles from "./Posts.module.sass";
 import logo from "../../../../assets/img/rocket.png";
 import {addPostChanger, onPostChangeChanger} from "../../../../redux/addPostReducer";
+import Post from "./Posts";
 
 const PostItem = (props) => {
 
@@ -26,38 +26,24 @@ const PostItem = (props) => {
 
 
 
-const Post = (props) => {
+const PostsComponent = (props) => {
 
-    let postElement = props.postsData
-        .map(p => <PostItem name={p.name} messagePost={p.messagePost}/>);
-
-    let newPostElement =
-        React.createRef();
-
-
-    let onPostChange = () => {
-
-        let t = newPostElement.current.value;
-        props.updatePostText(t)
-    }
+    let onPostChange = (t) => {
+        let action = onPostChangeChanger(t)
+        props.store.dispatch (action);
+    };
 
     let addPost = () => {
-        props.addPost()
-    }
+        let action = addPostChanger()
+        props.store.dispatch (action)
+    };
 
+    debugger
     return (
-        <div>
-            <div className={styles.addPost}>
-                <textarea ref={newPostElement} value={props.newTexMessage}
-                          placeholder="Введите текст сообщения..." onChange={onPostChange}/>
-                <button onClick={addPost}>Click Me</button>
-            </div>
-            {postElement}
-        </div>
+
+        <Post updatePostText = {onPostChange} addPost = {addPost} postsData = {props.store.getState().addPostPage.postsData} />
     )
-}
 
-{/*onChange={} ref={} value={} className={} */
-}
+};
 
-export default Post;
+export default PostsComponent;

@@ -5,6 +5,7 @@ import RegBox from "./BodyComponents/RegBox/RegBox";
 import AboutUs from "./BodyComponents/AboutUs/AboutUs";
 import HowItWorks from "./BodyComponents/HowItWorks/HowItWorks";
 import Calculator from "./BodyComponents/Calculator/Calculator";
+import PostsComponent from "./BodyComponents/Posts/PostsComponent";
 
 
 
@@ -19,9 +20,7 @@ let Body = (props) => {
             <AboutUs />
             <HowItWorks />
             <Calculator />
-            <Post postsData={props.state.postsData}
-                  newTexMessage={props.state.newTexMessage}
-                  dispatch = {props.dispatch} />
+            <PostsComponent store={props.store}  />
          </div>
     );
 }

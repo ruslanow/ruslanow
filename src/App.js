@@ -18,7 +18,7 @@ function App(props) {
                 <Route path='/help' render={ () => <SomePage state={props.state} dispatch={props.dispatch} />}/>
 
 
-                <Body  state={props.state}
+                <Body store={props.store} state={props.state}
                         dispatch={props.dispatch} />
 
 
