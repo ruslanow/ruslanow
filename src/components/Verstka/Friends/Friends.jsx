@@ -2,12 +2,7 @@ import React from 'react';
 import styles from './Friends.module.sass';
 import {NavLink} from "react-router-dom";
 
-
-
-
-
 let Friends = (props) => {
-
 
     return (
         <div className={styles.navigate__element}>

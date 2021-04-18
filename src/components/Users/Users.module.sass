@@ -1,0 +1,72 @@
+@import '../../sass/core/core'
+
+//users
+.wrapper
+  max-width: 1920px
+  width: 100%
+  height: 52em
+  padding: 5em 5em
+
+.title
+  @include font(2.5em, bold)
+  margin-bottom: 5rem
+
+
+//UsersBlock
+.box
+  width: 55em
+  height: auto
+  background: #ffffff
+  border: none
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.114), 0 4px 8px rgba(0, 0, 0, 0.114), 0 4px 8px rgba(0, 0, 0, 0.114), 0 4px 8px rgba(0, 0, 0, 0.114)
+  border-radius: 9px
+
+  padding: 1em
+  margin: 1em
+
+  display: flex
+
+  position: relative
+
+
+
+.user
+  display: flex
+  flex-direction: column
+
+  align-content: space-between
+  align-items: center
+
+  margin-right: 1em
+  width: 5em
+
+
+.imgContainer
+  margin-bottom: 0.45em
+
+.status
+  height: auto
+  width: 100%
+  //background: #B1B1B1
+  position: relative
+
+.userName
+  @include font(1.2em, 600)
+  padding-bottom: 1rem
+
+.statusContainer
+  @include font(1em, normal)
+  word-wrap: break-word
+
+.locationContainer
+  @include font(0.7em, normal)
+  opacity: 0.8
+  margin-top: 1.1em
+
+
+.selectedPage
+  font-weight: bolder
+  cursor: pointer
+.page
+  cursor: pointer
+

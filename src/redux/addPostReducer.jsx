@@ -1,4 +1,3 @@
-import store from "./store";
 
 const ADD_POST = 'ADD-POST'
 const UPDATE_POST_TEXT = 'UPDATE-POST-TEXT'
@@ -14,35 +13,29 @@ let initialState = {
 
 
 const addPostReducer = (state=initialState, action) => {
-
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 name: 'Roma',
                 messagePost: state.newTexMessage
             };
-
-
             if (newPost.messagePost.length === 0 || !newPost.messagePost.trim()) {
                 return state;
-            }
-            else {
-
-                state.postsData.push(newPost);
-                state.newTexMessage = '';
-                return state;
-            }
-
-        case 'UPDATE-POST-TEXT':
-
-            state.newTexMessage = action.postMessage;
-            return state;
+            }else {
+                return{
+                    ...state,
+                    newTexMessage: '',
+                    postsData: [...state.postsData,newPost ]}
+                }
 
 
-
+        case 'UPDATE-POST-TEXT': {
+            return{
+                ...state,
+                newTexMessage: action.postMessage}
+        }
         default:
             return state;
-
     }
 }
 

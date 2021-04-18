@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Verstka.module.sass';
 
 import l7 from './../../assets/img/Verstka/bottomPic.svg';
+import l8 from './../../assets/img/Verstka/logo.png';
 import cloud from './../../assets/img/Verstka/cloud.svg';
 
 import {NavLink} from 'react-router-dom';
@@ -14,7 +15,7 @@ let MessageItem = (props) => {
         <div>
             <div className={styles.message}>
                 <div className={styles.userName}>
-                    <img src={l7} height='35px' alt=""/>
+                    <img src={l8} height='35px' alt=""/>
                     <h2>{props.name}</h2>
                 </div>
                 <h3>{props.message}</h3>
@@ -23,40 +24,34 @@ let MessageItem = (props) => {
     )
 }
 
-
 let SomePage = (props) => {
 
-
-    let newMessage = props.state.dialogsPage.usersInfo
-        .map(p => <MessageItem message={p.messagePost} name={p.name}/>);
-
+    let newMessage = props.usersInfo
+        .map(p => <MessageItem message={p.messagePost} key={p.id} name={p.name}/>);
 
     let onMessageChange = () => {
         let t = messageRef.current.value;
-        props.dispatch(onMessageTextChangeChanger(t));
+        props.onMessageChange(t)
     }
 
-    let messageRef =
-        React.createRef();
-
+    let messageRef = React.createRef();
 
     let addPost = () => {
-        props.dispatch(addMessageChanger())
-
+        props.addPost()
     }
-    let FriendsList = props.state.dialogsPage.usersData.map(p => <Friends name={p.name} id={p.id}/>)
+    let FriendsList = props.usersData.map(p => <Friends name={p.name} key={p.id} id={p.id}/>)
 
     return (
-
-
         <div className={styles.intro}>
             <div className="container">
                 <div className={styles.body}>
+
+                    {/*СПИСОК ДРУЗЕЙ*/}
+
                     <div className={styles.navigate}>
                         <div className={styles.navigate__top}>
                             <img src={cloud} alt=""/> <span>cloudcash</span>
                         </div>
-
                         <div className={styles.friends}>
                             {FriendsList}
 
@@ -71,11 +66,15 @@ let SomePage = (props) => {
                         </div>
                     </div>
 
+                    {/*ВЕРХНЯЯ НАДПИСЬ*/}
+
                     <div className={styles.menu}>
-                            <div className={styles.dialog}>
-                                <div className={styles.dialogsHead}>Dialogs Page</div>
-                            </div>
+                        <div className={styles.dialog}>
+                            <div className={styles.dialogsHead}>Dialogs Page</div>
+                        </div>
                     </div>
+
+                    {/*КОНТЕНТ*/}
 
                     <div className={styles.content}>
 
@@ -83,9 +82,9 @@ let SomePage = (props) => {
                             {newMessage}
                         </div>
                         <div className={styles.textarea}>
-                            <textarea onChange={onMessageChange} value={props.state.dialogsPage.newDialogMessage}
+                            <textarea onChange={onMessageChange} value={props.newDialogMessage}
                                       ref={messageRef} placeholder="Введите текст сообщения..."/>
-                            <button onClick={addPost}>  Send  </button>
+                            <button onClick={addPost}> Send</button>
                         </div>
                     </div>
 

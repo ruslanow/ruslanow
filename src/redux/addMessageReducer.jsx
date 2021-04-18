@@ -14,50 +14,47 @@ let initialState = {
         {name: 'Olya K.', id: '7'},
 
     ],
-        usersInfo: [
-    {name: 'Nikola', id: '', messagePost: 'It test message'},
-    {name: 'Nikola', id: '', messagePost: 'It test message'},
-    {name: 'Nikola', id: '', messagePost: 'It test message'},
-],
+    usersInfo: [
+        {name: 'Nikola', id: '', messagePost: 'It test message'},
+        {name: 'Nikola', id: '', messagePost: 'It test message'},
+        {name: 'Nikola', id: '', messagePost: 'It test message'},
+    ],
     newDialogMessage: ''
 
 }
 
-const addMessageReducer = (state=initialState, action) => {
+const addMessageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE: {
 
+        case ADD_MESSAGE: {
             let newMessage = {
                 name: 'Nikola',
                 id: '1',
                 messagePost: state.newDialogMessage
             }
-
             if (newMessage.messagePost.length === 0 || !newMessage.messagePost.trim()) {
-                return state;
+                return  {...state}
             } else {
-                state.usersInfo.push(newMessage)
-                state.newDialogMessage = ''
-                return state;
+                return {
+                    ...state,
+                    newDialogMessage: '',
+                    usersInfo: [...state.usersInfo, newMessage]}
             }
         }
 
-
         case UPDATE_DIALOG_TEXT: {
-            state.newDialogMessage = action.dialogMessage;
-            return state;
+            return{
+                ...state,
+                newDialogMessage: action.dialogMessage}
         }
-
         default:
             return state;
     }
 }
 
 export default addMessageReducer;
-
 export const addMessageChanger = () => ({type: ADD_MESSAGE})
 export const onMessageTextChangeChanger = (t) => ({type: UPDATE_DIALOG_TEXT, dialogMessage: t})
-
 
 
 /*

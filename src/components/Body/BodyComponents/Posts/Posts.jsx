@@ -1,12 +1,9 @@
 import React from 'react';
 import './Posts.module.sass';
-// import PostItem from "./PostItem/PostItem";
 import styles from "./Posts.module.sass";
 import logo from "../../../../assets/img/rocket.png";
-import {addPostChanger, onPostChangeChanger} from "../../../../redux/addPostReducer";
 
 const PostItem = (props) => {
-
     return (
         <div>
             <div className={styles.block}>
@@ -24,19 +21,15 @@ const PostItem = (props) => {
     );
 };
 
-
-
 const Post = (props) => {
 
     let postElement = props.postsData
-        .map(p => <PostItem name={p.name} messagePost={p.messagePost}/>);
+        .map(p => <PostItem name={p.name} key={p.id} messagePost={p.messagePost}/>);
 
     let newPostElement =
         React.createRef();
 
-
     let onPostChange = () => {
-
         let t = newPostElement.current.value;
         props.updatePostText(t)
     }
@@ -49,7 +42,7 @@ const Post = (props) => {
         <div>
             <div className={styles.addPost}>
                 <textarea ref={newPostElement} value={props.newTexMessage}
-                          placeholder="Введите текст сообщения..." onChange={onPostChange}/>
+                placeholder="Введите текст сообщения..." onChange={onPostChange}/>
                 <button onClick={addPost}>Click Me</button>
             </div>
             {postElement}
