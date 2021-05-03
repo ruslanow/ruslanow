@@ -1,7 +1,7 @@
 import React from 'react';
 import {addMessageChanger, onMessageTextChangeChanger} from "../../redux/addMessageReducer";
-import SomePage from "./Verstka";
 import {connect} from "react-redux";
+import ChatPage from "./Verstka";
 
 
 // let SomePageContainer = (props) => {
@@ -43,7 +43,7 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-const SomePageContainer = connect(mapStateToProps, mapDispatchToProps)(SomePage)
+const ChatContainer = connect(mapStateToProps, mapDispatchToProps)(ChatPage)
 
 
-export default SomePageContainer;
+export default ChatContainer;

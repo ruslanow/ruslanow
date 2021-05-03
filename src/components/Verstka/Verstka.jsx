@@ -5,15 +5,14 @@ import l7 from './../../assets/img/Verstka/bottomPic.svg';
 import l8 from './../../assets/img/Verstka/logo.png';
 import cloud from './../../assets/img/Verstka/cloud.svg';
 
-import {NavLink} from 'react-router-dom';
-import {addMessageChanger, onMessageTextChangeChanger} from "../../redux/addMessageReducer";
+
 import Friends from "./Friends/Friends";
 
 
 let MessageItem = (props) => {
     return (
         <div>
-            <div className={styles.message}>
+            <div className={styles.messageItem}>
                 <div className={styles.userName}>
                     <img src={l8} height='35px' alt=""/>
                     <h2>{props.name}</h2>
@@ -24,7 +23,7 @@ let MessageItem = (props) => {
     )
 }
 
-let SomePage = (props) => {
+let ChatPage = (props) => {
 
     let newMessage = props.usersInfo
         .map(p => <MessageItem message={p.messagePost} key={p.id} name={p.name}/>);
@@ -50,7 +49,7 @@ let SomePage = (props) => {
 
                     <div className={styles.navigate}>
                         <div className={styles.navigate__top}>
-                            <img src={cloud} alt=""/> <span>cloudcash</span>
+                            <img src={cloud} alt=""/> <h2 className='font-weight-bold'>Чат</h2>
                         </div>
                         <div className={styles.friends}>
                             {FriendsList}
@@ -94,4 +93,4 @@ let SomePage = (props) => {
     );
 };
 
-export default SomePage;
+export default ChatPage;

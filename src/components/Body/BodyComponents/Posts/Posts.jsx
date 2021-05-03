@@ -5,7 +5,7 @@ import logo from "../../../../assets/img/rocket.png";
 
 const PostItem = (props) => {
     return (
-        <div>
+        <div key={props.id}>
             <div className={styles.block}>
                 <div className={styles.profileInfo}>
                     <img src={logo} width="40px" height="40px" alt=""/>
@@ -24,7 +24,7 @@ const PostItem = (props) => {
 const Post = (props) => {
 
     let postElement = props.postsData
-        .map(p => <PostItem name={p.name} key={p.id} messagePost={p.messagePost}/>);
+        .map(p => <PostItem name={p.name} key={p.id} id={p.id} messagePost={p.messagePost}/>);
 
     let newPostElement =
         React.createRef();

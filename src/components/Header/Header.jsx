@@ -8,7 +8,7 @@ import {NavLink} from 'react-router-dom';
 
 
 
-let Header = () => {
+let Header = (props) => {
 
 
 
@@ -22,7 +22,7 @@ let Header = () => {
                     <div className={styles.top__menu}>
                         <ul>
                             <li><NavLink to='/all-announcement' className={styles.link}>Все объявления</NavLink></li>
-                            <li><NavLink to='/podat-obyavlenie' className={styles.link}>Подать объявление</NavLink></li>
+                            <li><NavLink to='/friends' className={styles.link}>Список друзей</NavLink></li>
                             <li><NavLink to='/help' className={styles.link}>Помощь</NavLink></li>
                         </ul>
                     </div>
@@ -32,8 +32,16 @@ let Header = () => {
 
                     <div className={styles.block__top__auth}>
                         <NavLink to='/search'><img src={logo} alt="{logo}"/></NavLink>
-                        <p className={styles.topauthbutton}><a href='' className={styles.button}
-                                                               onclick='return false;'>ВОЙТИ</a></p>
+
+                        { props.isAuth ?
+                            <p className={styles.topauthbutton}>
+                                <NavLink to='' className={`${styles.button} ${styles.login}`}>{props.login}</NavLink>
+                            </p>
+                            :
+                            <p className={styles.topauthbutton}>
+                                <NavLink to='' className={`${styles.button} ${styles.login}`}>ВОЙТИ</NavLink>
+                            </p> }
+
                     </div>
                 </div>
             </div>

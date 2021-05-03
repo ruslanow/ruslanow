@@ -1,8 +1,5 @@
 import styles from './Calculator.module.sass'
 import React from "react";
-import s from '../../../../assets/img/range.svg'
-
-
 
 
 let Calculator = (props) => {

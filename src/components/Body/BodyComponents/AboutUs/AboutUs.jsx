@@ -4,7 +4,6 @@ import logo1 from "./../../../../assets/img/123456.png";
 import logo2 from "./../../../../assets/img/agreement.png";
 import logo3 from "./../../../../assets/img/file.png";
 import logo4 from "./../../../../assets/img/star.png";
-import {NavLink} from "react-router-dom";
 
 
 let AboutUs = (props) => {
