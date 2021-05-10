@@ -4,8 +4,9 @@ import './Users.module.sass';
 import Users from "./Users";
 import {
     follow, getUsers, isFetchingToggle,
-    isFollowingToggle, unfollow
+    isFollowingToggle, setCurrentPage, unfollow
 } from "../../redux/usersReducer";
+import {compose} from "redux";
 
 
 class UsersContainer extends React.Component{
@@ -17,27 +18,15 @@ class UsersContainer extends React.Component{
 
     onPageChange = (p) => {
         this.props.getUsers(p, this.props.pageSize)
+        this.props.setCurrentPage(p)
     }
 
     render() {
-
-        return <Users totalCount         = {this.props.totalCount}
-                      pageSize           = {this.props.pageSize}
-                      pageNumber         = {this.props.pageNumber}
-                      users              = {this.props.users}
-                      onPageChange       = {this.onPageChange}
-                      follow             = {this.props.follow}
-                      unfollow           = {this.props.unfollow}
-                      isFetching         = {this.props.isFetching}
-                      isFetchingToggle   = {this.props.isFetchingToggle}
-                      followInProgress   = {this.props.followInProgress}
-                      isFollowingToggle  = {this.props.isFollowingToggle}
-        />
+        return <Users {...this.props} onPageChange = {this.onPageChange}/>
     }
 }
 
 let mapStateToProps = (state) => {
-
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
@@ -48,5 +37,9 @@ let mapStateToProps = (state) => {
     };
 }
 
-export default connect(mapStateToProps,{follow, unfollow, isFetchingToggle, isFollowingToggle, getUsers})(UsersContainer)
+
+export default compose(
+    connect(mapStateToProps,{follow, unfollow, isFetchingToggle, isFollowingToggle, setCurrentPage, getUsers})
+)(UsersContainer)
+
 

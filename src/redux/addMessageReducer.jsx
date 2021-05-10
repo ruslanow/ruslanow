@@ -1,5 +1,4 @@
 const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_DIALOG_TEXT = 'UPDATE_DIALOG_TEXT'
 
 
 let initialState = {
@@ -14,57 +13,34 @@ let initialState = {
         {name: 'Olya K.', id: '7'},
 
     ],
-    usersInfo: [
+    usersMessages: [
         {name: 'Nikola', id: '', messagePost: 'It test message'},
         {name: 'Nikola', id: '', messagePost: 'It test message'},
         {name: 'Nikola', id: '', messagePost: 'It test message'},
-    ],
-    newDialogMessage: ''
-
+    ]
 }
 
 const addMessageReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case ADD_MESSAGE: {
+        case ADD_MESSAGE: 
             let newMessage = {
                 name: 'Nikola',
                 id: '1',
-                messagePost: state.newDialogMessage
+                messagePost: action.newMessageBody
             }
-            if (newMessage.messagePost.length === 0 || !newMessage.messagePost.trim()) {
-                return  {...state}
-            } else {
-                return {
-                    ...state,
-                    newDialogMessage: '',
-                    usersInfo: [...state.usersInfo, newMessage]}
-            }
-        }
 
-        case UPDATE_DIALOG_TEXT: {
-            return{
+            return {
                 ...state,
-                newDialogMessage: action.dialogMessage}
-        }
+                usersMessages: [...state.usersMessages, newMessage]
+            }
+
+
         default:
             return state;
     }
 }
 
 export default addMessageReducer;
-export const addMessageChanger = () => ({type: ADD_MESSAGE})
-export const onMessageTextChangeChanger = (t) => ({type: UPDATE_DIALOG_TEXT, dialogMessage: t})
+export const addMessage = (newMessageBody) => ({type: ADD_MESSAGE, newMessageBody})
 
-
-/*
-if (newMessage.messagePost.length === 0 || !newMessage.messagePost.trim()) {
-    this.rerenderEntireTree(this._state)
-} else {
-    this._state.usersInfo.push(newMessage)
-    this.rerenderEntireTree(this._state)
-}
-this._state.newDialogMessage = ''
-return state;
-}
-*/

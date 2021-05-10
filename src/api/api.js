@@ -8,16 +8,46 @@ const instance = axios.create({
 
 })
 
-export const UserAPI =  {
+export const UserAPI = {
     getUsers(p, pageSize) {
         return instance.get(`users?page=${p}&count=${pageSize}`)
             .then (response => response.data) },
 
-
     follow(userId) {
-        return instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`) },
+        return instance.post(`follow/${userId}`)
+    },
 
     unfollow(userId) {
-        return instance.delete(`https://social-network.samuraijs.com/api/1.0/unfollow/${userId}`)},
+        return instance.delete(`follow/${userId}`)
+    },
+
+    setUserProfile(userId){
+        console.warn('You use deprecated method. Use ProfileAPI.setUserProfile')
+        return ProfileAPI.setUserProfile(userId)
+    },
 }
 
+
+export const ProfileAPI = {
+
+    setUserProfile(userId){
+        return instance.get(`profile/${userId}`)
+    },
+
+    updateStatus(status){
+        return instance.put(`profile/status`, {status: status})
+    },
+
+    getStatus(userId){
+        return instance.get(`profile/status/${userId}`)
+    },
+
+}
+
+
+export const AuthAPI = {
+    setAuthUserData(){
+        return instance.get(`auth/me`)
+    }
+
+}

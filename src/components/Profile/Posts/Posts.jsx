@@ -1,7 +1,9 @@
 import React from 'react';
 import './Posts.module.sass';
 import styles from "./Posts.module.sass";
-import logo from "../../../../assets/img/rocket.png";
+import logo from "../../../assets/img/rocket.png";
+import PostReduxForm from "./PostForm/PostForm";
+
 
 const PostItem = (props) => {
     return (
@@ -26,31 +28,18 @@ const Post = (props) => {
     let postElement = props.postsData
         .map(p => <PostItem name={p.name} key={p.id} id={p.id} messagePost={p.messagePost}/>);
 
-    let newPostElement =
-        React.createRef();
-
-    let onPostChange = () => {
-        let t = newPostElement.current.value;
-        props.updatePostText(t)
-    }
-
-    let addPost = () => {
-        props.addPost()
+    let addPost = (values) => {
+        props.addPost(values.postMessage)
     }
 
     return (
-        <div>
+        <div key={props.id}>
             <div className={styles.addPost}>
-                <textarea ref={newPostElement} value={props.newTexMessage}
-                placeholder="Введите текст сообщения..." onChange={onPostChange}/>
-                <button onClick={addPost}>Click Me</button>
+                <PostReduxForm onSubmit={addPost} />
             </div>
             {postElement}
         </div>
     )
-}
-
-{/*onChange={} ref={} value={} className={} */
 }
 
 export default Post;

@@ -17,7 +17,6 @@
   margin: 0 auto
   align-content: center
 
-.topauthbutton
 
 header
   height: 66px
@@ -39,7 +38,7 @@ header
   position: relative
 
 
-  grid-template-columns: 460px 510px 190px 190px
+  grid-template-columns: 4.6fr 5.1fr 1.9fr 1.9fr
   grid-template-areas: "logo menu phone auth"
   grid-row-gap: 10px
 
@@ -151,51 +150,90 @@ a.button
   line-height: 1
   font-weight: 100
   box-shadow: 0 4px 20px rgba(62, 137, 244, 0.3)
-  transition: 800ms linear
+  transition: 100ms linear
   float: left
+  margin-top: 10px
+  margin-left: 20px
   &:hover
     background: #5c9fff
 
 
 
 
-body
-  margin: 0
-  font-family: 'Open Sans', sans-serif
-  font-size: 16px
-  color: $black
-  line-height: 1.6
-  height: auto
-  width: 100%
+
+// ------------------------------------------------------->
+
+.navbar
+  height: 60px
+  background-color: #242526
+  padding: 0 1rem
+  border-bottom: 1px solid #474a4d
+  z-index: 50
+  display: flex
+  justify-content: space-between
+  align-items: center
 
 
-*
-  box-sizing: border-box
-  -moz-box-sizing: border-box
-  margin: 0
-  padding: 0
-
-*:before
-  box-sizing: border-box
-  -moz-box-sizing: border-box
-  margin: 0
-  padding: 0
-
-*:after
-  box-sizing: border-box
-  -moz-box-sizing: border-box
-  margin: 0
-  padding: 0
-
-
-a
-  text-decoration: none
-  color: $black
-
-
-h1, h2, h3, h4, h5, h6
-  margin: 0
+.navbarNav
+  max-width: 100%
+  height: 100%
+  display: flex
+  justify-content: flex-end
 
 
 
+// NavItems
 
+.navItem
+  width: calc(60px * 0.8)
+  display: flex
+  align-items: center
+  justify-content: center
+
+.iconButton
+  width: calc(60px * 0.5)
+  height: calc(60px * 0.5)
+  background-color: #484a4d
+  border-radius: 50%
+  padding: 5px
+  margin: 2px
+  text-decoration-line: none
+
+  display: flex
+  align-items: center
+  justify-content: center
+
+  transition: filter 300ms
+  &:hover
+    filter: brightness(1.2)
+
+
+// NavLogo
+
+.navLogo
+  width: 15rem
+  height: calc(60px * 0.5)
+  margin: 2px
+  text-decoration-line: none
+
+  display: flex
+  align-items: center
+  justify-content: center
+
+  a
+    color: #673aaf
+    text-decoration: none
+    transition: filter 300ms
+
+  a:active
+    background-color: transparent
+  a:hover
+    filter: brightness(1.6)
+
+.s
+  font-size: 22px
+  font-weight: bold
+  font-style: normal
+  line-height: 27px
+  cursor: pointer
+  font-family: $font

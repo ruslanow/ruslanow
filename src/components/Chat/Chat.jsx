@@ -1,12 +1,10 @@
 import React from 'react';
-import styles from './Verstka.module.sass';
-
+import styles from './Chat.module.sass';
 import l7 from './../../assets/img/Verstka/bottomPic.svg';
 import l8 from './../../assets/img/Verstka/logo.png';
 import cloud from './../../assets/img/Verstka/cloud.svg';
-
-
 import Friends from "./Friends/Friends";
+import ChatReduxForm from "./ChatForm/ChatForm";
 
 
 let MessageItem = (props) => {
@@ -25,18 +23,12 @@ let MessageItem = (props) => {
 
 let ChatPage = (props) => {
 
-    let newMessage = props.usersInfo
+    let messages = props.usersMessages
         .map(p => <MessageItem message={p.messagePost} key={p.id} name={p.name}/>);
 
-    let onMessageChange = () => {
-        let t = messageRef.current.value;
-        props.onMessageChange(t)
-    }
 
-    let messageRef = React.createRef();
-
-    let addPost = () => {
-        props.addPost()
+    let addMessage = (values) => {
+        props.addMessage(values.newMessageBody)
     }
     let FriendsList = props.usersData.map(p => <Friends name={p.name} key={p.id} id={p.id}/>)
 
@@ -78,12 +70,10 @@ let ChatPage = (props) => {
                     <div className={styles.content}>
 
                         <div className={styles.messages}>
-                            {newMessage}
+                            {messages}
                         </div>
                         <div className={styles.textarea}>
-                            <textarea onChange={onMessageChange} value={props.newDialogMessage}
-                                      ref={messageRef} placeholder="Введите текст сообщения..."/>
-                            <button onClick={addPost}> Send</button>
+                            <ChatReduxForm onSubmit={addMessage}/>
                         </div>
                     </div>
 

@@ -21,18 +21,8 @@ let initialState = {
 const usersReducer = (state = initialState, action) => {
 
     switch (action.type) {
+
         case FOLLOW:
-            return {
-                ...state,
-                users: state.users.map(u => {
-                    if (u.id === action.usersId) {
-                        return {...u, followed: false}
-                    } else {
-                        return u;
-                    }
-                })
-            }
-        case UNFOLLOW: {
             return {
                 ...state,
                 users: state.users.map(u => {
@@ -43,7 +33,20 @@ const usersReducer = (state = initialState, action) => {
                     }
                 })
             }
+        case UNFOLLOW: {
+            return {
+                ...state,
+                users: state.users.map(u => {
+                    if (u.id === action.usersId) {
+                        return {...u, followed: false}
+                    } else {
+                        return u;
+                    }
+                })
+            }
         }
+
+
 
         case TOGGLE_FOLLOW_PROGRESS: {
             return {
@@ -75,8 +78,8 @@ const usersReducer = (state = initialState, action) => {
 }
 
 export const followSuccess = (usersId) => ({type: FOLLOW, usersId})
-
 export const unfollowSuccess = (usersId) => ({type: UNFOLLOW, usersId})
+
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalCount})
 export const setCurrentPage = (pageNumber) => ({type: SET_CURRENT_PAGE, pageNumber})
@@ -114,6 +117,7 @@ export const unfollow = (userId) => {
                 }
                 dispatch(isFollowingToggle(false, userId));
             })
+
     }
 }
 

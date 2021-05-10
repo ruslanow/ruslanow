@@ -48,10 +48,10 @@ let Users = (props) => {
                                 <div className={styles.buttonContainer}>
                                     {p.followed
 
-                                        ? <button disabled={props.followInProgress.some(id => id === p.id)} onClick={() => {props.follow(p.id)} }>
+                                        ? <button disabled={props.followInProgress.some(id => id === p.id)} onClick={() => {props.unfollow(p.id)} }>
                                             unfollow
                                         </button>
-                                        : <button disabled={props.followInProgress.some(id => id === p.id)} onClick={() => {props.unfollow(p.id)}}>
+                                        : <button disabled={props.followInProgress.some(id => id === p.id)} onClick={() => {props.follow(p.id)}}>
                                             follow
                                         </button>
                                     }

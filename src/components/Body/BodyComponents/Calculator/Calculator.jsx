@@ -1,5 +1,6 @@
 import styles from './Calculator.module.sass'
 import React from "react";
+import {NavLink} from "react-router-dom";
 
 
 let Calculator = (props) => {
@@ -15,7 +16,7 @@ let Calculator = (props) => {
                 </div>
                 <input type="range" min="30000" max="5000000" step="10000" value="30000"
                        className="slider"
-                       id="how-much-you-need" onInput="Numbers();" />
+                       id="how-much-you-need"/>
                     <div className="credit-box__under-case">
                         <span id="from">от 30 000</span>
                         <span id="for">до 5 000 000</span>
@@ -26,8 +27,7 @@ let Calculator = (props) => {
                     </div>
                     <div className="calculator-slider">
                         <input type="range" min="1" max="12" step="1" value="1"
-                               className="slider" id="for-how-long"
-                               onInput="Dates(); sliderFunction();" />
+                               className="slider" id="for-how-long"/>
                     </div>
                     <div className="credit-box__under-case">
                         <span id="from">от 3 месяцев</span>
@@ -45,7 +45,7 @@ let Calculator = (props) => {
                     <h2 id="calculation-box__right-text s" >4 400р</h2>
                 </div>
                 <div className="button-calculator">
-                    <a id='button-calculator-btn' href="">Оформить онлайн</a>
+                    <NavLink to='/' id='button-calculator-btn'>Оформить онлайн</NavLink>
                 </div>
             </div>
         </div>

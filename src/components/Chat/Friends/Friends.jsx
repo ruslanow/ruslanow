@@ -6,7 +6,7 @@ let Friends = (props) => {
 
     return (
         <div className={styles.navigate__element}>
-            <NavLink to={`/help/${props.id}`} className={styles.href} activeClassName={styles.active}>
+            <NavLink to={`/chat/${props.id}`} className={styles.href} activeClassName={styles.active}>
                 <span className={styles.href} >{props.name}</span></NavLink>
         </div>
     );
