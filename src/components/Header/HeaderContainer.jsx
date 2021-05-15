@@ -7,11 +7,6 @@ import {compose} from "redux";
 
 class HeaderContainer extends React.Component {
 
-    componentDidMount() {
-        this.props.setAuthUserData()
-    }
-
-
     render() {
         return (
             <Header {...this.props}/>

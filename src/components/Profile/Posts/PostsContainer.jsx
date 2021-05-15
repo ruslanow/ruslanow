@@ -1,4 +1,3 @@
-import React from 'react';
 import {connect} from "react-redux";
 import './Posts.module.sass';
 import {addPost} from "../../../redux/addPostReducer";

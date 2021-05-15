@@ -26,31 +26,31 @@ let HowItWorks = (props) => {
                 </div>
                 <div className={styles.body} >
                     <div className={styles.box}>
-                        <div className={styles.img1}><img src={img1}  /></div>
+                        <div className={styles.img1}><img src={img1} alt=''  /></div>
                         <div className={styles.title}>Подача обьявления</div>
                         <div className={styles.text}>Вы подаете обьявление с запросом на кредит на нашем сайте
                         </div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.img2}><img src={img2} /></div>
+                        <div className={styles.img2}><img src={img2} alt='' /></div>
                         <div className={styles.title}>Одобрение</div>
                         <div className={styles.text}>Мы проверяем все ваши данные и одобряем ваше обьявление
                         </div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.img3}><img src={img3}   /></div>
+                        <div className={styles.img3}><img src={img3} alt=''   /></div>
                         <div className={styles.title}>Выбор</div>
                         <div className={styles.text}>Выбираете выгодное для себя предложение</div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.img4}><img src={img4}  /></div>
+                        <div className={styles.img4}><img src={img4} alt=''  /></div>
                         <div className={styles.title}>Получение</div>
                         <div className={styles.text}>Получаете деньги удобным способом</div>
                     </div>
                 </div>
                 <div className={styles.body2}>
                     <div className={styles.box}>
-                        <div className={styles.img1}><img src={img1}   /></div>
+                        <div className={styles.img1}><img src={img1} alt=''   /></div>
                         <div className={styles.title}>Текст</div>
                         <div className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Quisquam
@@ -58,7 +58,7 @@ let HowItWorks = (props) => {
                         </div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.img2}><img src={img2}   /></div>
+                        <div className={styles.img2}><img src={img2} alt=''   /></div>
                         <div className={styles.title}>Одобрение</div>
                         <div className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Voluptatum,
@@ -66,7 +66,7 @@ let HowItWorks = (props) => {
                         </div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.img3}><img src={img3}   /></div>
+                        <div className={styles.img3}><img src={img3} alt=''   /></div>
                         <div className={styles.title}>Выбор</div>
                         <div className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Voluptatum,
@@ -74,7 +74,7 @@ let HowItWorks = (props) => {
                         </div>
                     </div>
                     <div className={styles.box}>
-                        <div className={styles.img4}><img src={img4}/></div>
+                        <div className={styles.img4}><img src={img4} alt=''/></div>
                         <div className={styles.title}>Получение</div>
                         <div className={styles.text}>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Voluptatum,

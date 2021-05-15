@@ -1,12 +1,16 @@
 import React from "react";
+import styles from "./PostForm.module.sass"
 import {Field, reduxForm} from "redux-form";
-import {required} from "../../../../utils/validators/validators";
+import sendPic from "../../../../../src/assets/img/send.svg"
+import {maxLength, required} from "../../../../utils/validators/validators";
+
+const maxLength200 = maxLength(200)
 
 const PostForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
-            <Field component={"input"} name={"postMessage"} validate={required} placeholder="Введите текст сообщения..."/>
-            <button>Click Me</button>
+        <form className={styles.form} onSubmit={props.handleSubmit}>
+            <Field component={'textarea'} name={"postMessage"} placeholder="Введите текст сообщения..." validate={[required, maxLength200]}/>
+            <button className={styles.button}><img src={sendPic} width={"20em"} alt=""/></button>
         </form>
     )
 }

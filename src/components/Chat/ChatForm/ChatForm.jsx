@@ -1,17 +1,17 @@
 import {Field, reduxForm} from "redux-form";
-import {required} from "../../../utils/validators/validators";
+import styles from "./ChatForm.module.sass"
+import sendPic from "../../../assets/img/send.svg";
+import React from "react";
 
 const ChatForm = (props) => {
     return (
-        <form onSubmit={props.handleSubmit}>
-        <Field component={"input"} name={"newMessageBody"} validate={required} placeholder="Введите текст сообщения..."/>
-            <button>Send</button>
+        <form className={styles.form} onSubmit={props.handleSubmit}>
+            <Field component={'textarea'} name={"newMessageBody"} placeholder="Введите текст сообщения..."/>
+            <button className={styles.button}><img src={sendPic} width={"20em"} alt=""/></button>
         </form>
     )
 }
 
-
 const ChatReduxForm = reduxForm({form: 'send-message-form'})(ChatForm)
-
 
 export default ChatReduxForm

@@ -28,7 +28,7 @@ header
 
   font: $font
 
-  a
+  a, button
     outline: none
 
 
@@ -78,7 +78,7 @@ header
       list-style: none
       float: left
 
-      a
+      a, button
         display: block
         width: auto
         margin-left: 30px
@@ -108,7 +108,7 @@ header
 
   grid-area: phone
 
-  a
+  a, button
     font-size: 22px
     font-weight: $font-big
     font: $font
@@ -124,7 +124,7 @@ header
 
   grid-area: auth
 
-  a
+  a, button
     float: left
     margin-right: 30px
     padding-top: 5px
@@ -138,14 +138,18 @@ header
     float: left
 
 
-a.button
+
+
+
+// ------------------------------------------------------->
+
+.button
   background: $blue
   color: #fff
   padding: 12px
   border-radius: 4px
   text-decoration: none
   font-family: $font
-  //font-weight: 400
   font-size: 14px
   line-height: 1
   font-weight: 100
@@ -157,11 +161,31 @@ a.button
   &:hover
     background: #5c9fff
 
+.logout
+  color: #fff
+  padding: 12px
+  border-radius: 6px
+  text-decoration: none
+  font-family: $font
+  font-size: 14px
+  line-height: 1
+  font-weight: 100
+  transition: 100ms linear
+  float: left
+  margin-top: 10px
+  margin-left: 20px
+  background: #b81f1f
+  box-shadow: 0 4px 20px rgba(244, 62, 62, 0.3)
+  border: none
+  &:hover
+    background: #ff4c4c
 
-
-
-
-// ------------------------------------------------------->
+.navbarWrapper
+  min-width: 460px
+  width: 100%
+  z-index: 50
+.buttonsContainer
+  width: 15rem
 
 .navbar
   height: 60px
@@ -180,7 +204,9 @@ a.button
   display: flex
   justify-content: flex-end
 
-
+.canvas
+  width: 10em
+  height: 10em
 
 // NavItems
 
@@ -237,3 +263,75 @@ a.button
   line-height: 27px
   cursor: pointer
   font-family: $font
+
+
+// L I Q U I D     S T Y L E S
+
+.liquidLink
+  //padding: 10px 20px
+  position: relative
+  width: 100px
+  height: 40px
+  text-decoration: none
+  display: block
+  overflow: hidden
+  border-radius: 5px
+  display: flex
+  justify-content: center
+  align-items: center
+
+  span
+    letter-spacing: 4px
+    font-size: 16px
+    color: white
+    position: relative
+    z-index: 51
+    font-family: Consolas,serif
+    pointer-events: none
+
+
+.liquidNavItem
+  display: flex
+  align-items: center
+  justify-content: center
+
+.liquid
+  position: absolute
+  top: -35px
+  left: 0
+  width: 100px
+  height: 100px
+  background: #4670fc
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, .3)
+  transition: .4s
+  &:hover
+    top: -60px
+
+.liquid:after, .liquid:before
+  content: ''
+  width: 200%
+  height: 200%
+  position: absolute
+  top: 0
+  left: 50%
+  transform: translate(-50%, -75%)
+  background: #000000
+
+
+.liquid:before
+  border-radius: 45%
+  background: rgb(33, 33, 33)
+  animation: animate 5s linear infinite
+.liquid:after
+  border-radius: 40%
+  background: rgba(43, 43, 43, 0.5)
+  animation: animate 10s linear infinite
+
+
+@keyframes animate
+  0%
+    transform: translate(-50%, -75%) rotate(0deg)
+
+  100%
+    transform: translate(-50%, -75%) rotate(360deg)
+

@@ -2,10 +2,8 @@ import React from 'react';
 import './Users.module.sass';
 import styles from "./Users.module.sass";
 import userPhoto from '../../assets/user.png';
-import * as axios from "axios";
 import {Preloader} from "../../common/Preloader/Preloader";
 import {NavLink} from "react-router-dom";
-import {isFollowingToggle} from "../../redux/usersReducer";
 
 
 let Users = (props) => {

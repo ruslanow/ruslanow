@@ -23,7 +23,7 @@ let initialState = {
 const addMessageReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case ADD_MESSAGE: 
+        case ADD_MESSAGE:
             let newMessage = {
                 name: 'Nikola',
                 id: '1',
