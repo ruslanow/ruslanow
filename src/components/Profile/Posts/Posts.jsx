@@ -23,7 +23,7 @@ const PostItem = (props) => {
     );
 };
 
-const Post = (props) => {
+const Post = React.memo(props => {
 
     let postElement = props.postsData
         .map(p => <PostItem name={p.name} key={p.id} id={p.id} messagePost={p.messagePost}/>);
@@ -40,6 +40,6 @@ const Post = (props) => {
             {postElement}
         </div>
     )
-}
+})
 
 export default Post;

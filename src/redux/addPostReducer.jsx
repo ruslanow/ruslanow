@@ -2,7 +2,6 @@ const ADD_POST = 'ADD-POST'
 
 
 let initialState = {
-    // Posts Functionality
     postsData: [
         {name: 'Nikola', messagePost: 'Hi, Bro! Its was really useful info'},
     ],

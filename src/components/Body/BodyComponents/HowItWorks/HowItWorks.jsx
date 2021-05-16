@@ -2,8 +2,6 @@ import styles from './HowItWorks.module.sass'
 import React from "react";
 import './../../../../assets/img/shild.png'
 
-import $ from 'jquery'
-
 import img1 from './../../../../assets/img/file.png';
 import img2 from './../../../../assets/img/shild.png';
 import img3 from './../../../../assets/img/scales.png';
@@ -20,8 +18,8 @@ let HowItWorks = (props) => {
                 <h1>Как это работает</h1>
                 <div className={styles.flex}>
                     <ul>
-                        <li><NavLink to='/' className={`${styles.link} ${styles.borrower}`} onClick={b}>Заемщик</NavLink></li>
-                        <li><NavLink to='/' className={`${styles.link} ${styles.creditor}`} onClick={c}>Кредитор</NavLink></li>
+                        <li><NavLink to='/' className={`${styles.link} ${styles.borrower}`}>Заемщик</NavLink></li>
+                        <li><NavLink to='/' className={`${styles.link} ${styles.creditor}`}>Кредитор</NavLink></li>
                     </ul>
                 </div>
                 <div className={styles.body} >
@@ -89,25 +87,6 @@ let HowItWorks = (props) => {
 
 
 
-
-function c() {
-        $('.body').css({'display':'none'});
-        $('.body2').css({'display':'flex'});
-        $('.creditor').css({'color':'#3E89F4'});
-        $('.borrower').css({'color':'#B1B1B1'});
-
-        console.log('creditor ')
-    }
-
-function b() {
-        $('.body2').css({'display':'none'});
-        $('.body').css({'display':'flex'});
-        $('.borrower').css({'color':'#3E89F4'});
-        $('.creditor').css({'color':'#B1B1B1'});
-
-
-        console.log('borrower')
-    }
 
 
 export default HowItWorks;

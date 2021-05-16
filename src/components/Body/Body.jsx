@@ -13,11 +13,13 @@ let Body = (props) => {
 
     return (
         <div className={styles.block}>
-            <RegBox />
+{/*            <RegBox />
 
             <AboutUs />
             <HowItWorks />
-            <Calculator />
+            <Calculator />*/}
+
+
          </div>
     );
 }
