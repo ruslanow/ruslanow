@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./PostForm.module.sass"
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, reset} from "redux-form";
 import sendPic from "../../../../../src/assets/img/send.svg"
 import {maxLength, required} from "../../../../utils/validators/validators";
 
@@ -14,7 +14,9 @@ const PostForm = (props) => {
         </form>
     )
 }
+const afterSubmit = (result, dispatch) =>
+    dispatch(reset('posts-form'));
 
-const PostReduxForm = reduxForm({form: "posts-form"})(PostForm)
+const PostReduxForm = reduxForm({form: "posts-form", onSubmitSuccess: afterSubmit})(PostForm)
 
 export default PostReduxForm

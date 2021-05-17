@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./Login.module.sass"
 import {Field, reduxForm} from "redux-form";
 import {required} from "../../utils/validators/validators";
-import {Input} from "../../common/FormsControl/FormsControl";
+import {fieldComponent, Input} from "../../common/FormsControl/FormsControl";
 import {login} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
@@ -28,20 +28,22 @@ let Login = (props) => {
     )
 }
 
-let LoginForm = (props) => {
+let LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit} className={styles.form}>
+        <form onSubmit={handleSubmit} className={styles.form}>
             <div className={`${styles.input}`}>
-                <Field component={Input} name={"login"} placeholder={'Введите логин'} validate={required}/>
+                {fieldComponent("login", 'Введите логин...', Input, [required])}
             </div>
             <div className={`${styles.input}`}>
-                <Field component={Input} name={"password"} type={'password'} placeholder={'Введите пароль'} validate={required}/>
+
+                {fieldComponent("password", 'Введите пароль...', Input, [required], {type: 'password'})}
+
             </div>
-            { props.error && <div className={styles.summaryError}>
-                <span>{props.error}</span>
+            {error && <div className={styles.summaryError}>
+                <span>{error}</span>
             </div>}
             <div className={styles.input}>
-                <Field className={styles.checkbox} component={"input"} type="checkbox" name={"rememberMe"}/> remember me
+                {fieldComponent("rememberMe", null, "input", null, {type: 'checkbox'}, "remember me")}
             </div>
             <div className=''>
                 <button className={styles.button}>Войти</button>
