@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from "./Status.module.sass"
 
-class Status extends React.Component {
+class StatusClass extends React.Component {
 
     state = {
         editMode: false,
@@ -53,39 +53,14 @@ class Status extends React.Component {
 }
 
 
-const Status2 = (props) => {
+const Status = (props) => {
 
-/*    state = {
-        editMode: false,
-        status: this.props.status
-    }*/
     const [editMode, setEditMode] = useState(false)
     const [status, setStatus] = useState(props.status)
-
-/*    activateEditMode = () => {
-        this.setState({
-            editMode: true
-        });
-    }*/
-
-/*    deactivateEditMode() {
-        this.setState({
-            editMode: false
-        });
-        this.props.updateStatus(this.state.status);
-    }*/
 
     const onStatusChange = (e) => {
         setStatus(e.currentTarget.value);
     }
-
-/*    componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps.status !== this.props.status) {
-            this.setState({
-                status: this.props.status
-            })
-        }
-    }*/
 
     useEffect( () => {
         setStatus(props.status)
@@ -112,4 +87,4 @@ const Status2 = (props) => {
 
 
 
-export default Status2;
+export default Status;
