@@ -1,26 +1,22 @@
-import styles from "./Users.module.sass";
-import React from "react";
+import React, {useState} from "react";
+import {Pagination} from "@material-ui/lab";
 
-export const Paginator = ({totalCount, pageSize, pageNumber, onPageChange }) => {
+
+export const Paginator = ({totalCount, pageSize, pageNumber, onPageChange, portionSize}) => {
+
     let totalPageCount = Math.ceil(totalCount / pageSize);
-
     let pages = [];
-
     for (let i = 1; totalPageCount >= i; i++) {
         pages.push(i);
     }
 
 
+
     return (
         <div>
-        {
-            pages.map(p => {
-                return <span className={pageNumber === p ? styles.selectedPage : styles.page}
-                             onClick={(e) => {
-                                 onPageChange(p)
-                             }}> {p} </span>
-            })
-        }
+            <Pagination count={totalPageCount} shape="rounded" size={"medium"} page={pageNumber} onChange={(event, page) => {
+                onPageChange(page)
+            }}/>
         </div>
     )
 }

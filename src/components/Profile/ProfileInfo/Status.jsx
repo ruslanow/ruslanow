@@ -68,7 +68,7 @@ const Status = (props) => {
     )
 
         return (
-            <div>
+            <div className={styles.wrapper}>
                 {!editMode &&
                 <div className={styles.statusBox}>
                     <span onDoubleClick={ () => setEditMode(!editMode)}>{props.status || "-------"}</span>

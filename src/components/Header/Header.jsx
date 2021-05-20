@@ -4,47 +4,10 @@ import {NavLink} from 'react-router-dom';
 import {connect} from "react-redux";
 import {logout} from "../../redux/auth-reducer";
 
-/*let Header1 = (props) => {
-
-    return (
-        <header>
-            <div className={styles.container}>
-                <div className={styles.headerBlock}>
-                    <div className={styles.logotype}>
-                        <h2><NavLink to='/'>Тестовый проект</NavLink></h2>
-                    </div>
-                    <div className={styles.top__menu}>
-                        <ul>
-                            <li><NavLink to='/profile' className={styles.link}>Профиль</NavLink></li>
-                            <li><NavLink to='/friends' className={styles.link}>Список друзей</NavLink></li>
-                            <li><NavLink to='/chat' className={styles.link}>Чат</NavLink></li>
-                        </ul>
-                    </div>
-
-                    <div className={styles.block__top__auth}>
-                        <NavLink to='/search'><img src={logo} alt="{logo}"/></NavLink>
-
-                        {props.isAuth ?
-                            <p className={styles.topauthbutton}>
-                                <NavLink to='' className={`${styles.button} ${styles.login}`}>{props.login}</NavLink>
-                            </p>
-                            :
-                            <p className={styles.topauthbutton}>
-                                <NavLink to='' className={`${styles.button} ${styles.login}`}>ВОЙТИ</NavLink>
-                            </p>}
-
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
-}*/
-
 
 let Header = (props) => {
     return (
         <Navbar>
-
             <NavbarItem path='profile' icon='👽'/>
             <NavbarItem path='chat' icon='💬'/>
             <NavbarItem path='friends' icon='💘 '/>
@@ -94,6 +57,14 @@ let NavbarLogo = (props) => {
             <NavLink to={`/`} className={styles.s}>
                 {props.title}
             </NavLink>
+        </span>
+    )
+}
+
+export default connect(null, {logout})(Header);
+
+
+
 {/*                        <Canvas shadowMap colorManagmernt className={styles.canvas} camera={{position: [-15, 2, 10], fov: 60}}>
                 <ambientLight intensity={0.3}/>
                 <directionalLight
@@ -121,8 +92,3 @@ let NavbarLogo = (props) => {
                 </group>
                 <OrbitControls/>
             </Canvas>*/}
-        </span>
-    )
-}
-
-export default connect(null, {logout})(Header);
