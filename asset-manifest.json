@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/static/css/main.559e902a.chunk.css",
+    "main.js": "/static/js/main.dff4f929.chunk.js",
+    "main.js.map": "/static/js/main.dff4f929.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c934b41e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c934b41e.js.map",
+    "static/js/2.c3134318.chunk.js": "/static/js/2.c3134318.chunk.js",
+    "static/js/2.c3134318.chunk.js.map": "/static/js/2.c3134318.chunk.js.map",
+    "static/css/3.55097270.chunk.css": "/static/css/3.55097270.chunk.css",
+    "static/js/3.2d9de57b.chunk.js": "/static/js/3.2d9de57b.chunk.js",
+    "static/js/3.2d9de57b.chunk.js.map": "/static/js/3.2d9de57b.chunk.js.map",
+    "static/css/4.0662eaac.chunk.css": "/static/css/4.0662eaac.chunk.css",
+    "static/js/4.251c6b02.chunk.js": "/static/js/4.251c6b02.chunk.js",
+    "static/js/4.251c6b02.chunk.js.map": "/static/js/4.251c6b02.chunk.js.map",
+    "static/js/5.43869ae8.chunk.js": "/static/js/5.43869ae8.chunk.js",
+    "static/js/5.43869ae8.chunk.js.map": "/static/js/5.43869ae8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/3.55097270.chunk.css.map": "/static/css/3.55097270.chunk.css.map",
+    "static/css/4.0662eaac.chunk.css.map": "/static/css/4.0662eaac.chunk.css.map",
+    "static/css/main.559e902a.chunk.css.map": "/static/css/main.559e902a.chunk.css.map",
+    "static/js/2.c3134318.chunk.js.LICENSE.txt": "/static/js/2.c3134318.chunk.js.LICENSE.txt",
+    "static/media/RegBox.module.sass": "/static/media/123.80bc9a6d.png",
+    "static/media/Friends.module.sass": "/static/media/Union.c91b0262.png",
+    "static/media/bottomPic.da3f8a8f.svg": "/static/media/bottomPic.da3f8a8f.svg",
+    "static/media/cloud.8d4f3ddd.svg": "/static/media/cloud.8d4f3ddd.svg",
+    "static/media/logo.9f358b33.png": "/static/media/logo.9f358b33.png",
+    "static/media/preloader.9dd581ae.gif": "/static/media/preloader.9dd581ae.gif",
+    "static/media/Calculator.module.sass": "/static/media/range.81e4a64b.svg",
+    "static/media/send.svg": "/static/media/send.222df3e7.svg",
+    "static/media/user.96e310a6.png": "/static/media/user.96e310a6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c934b41e.js",
+    "static/js/2.c3134318.chunk.js",
+    "static/css/main.559e902a.chunk.css",
+    "static/js/main.dff4f929.chunk.js"
+  ]
+}
