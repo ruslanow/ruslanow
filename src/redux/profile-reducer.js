@@ -1,17 +1,19 @@
 import {ProfileAPI, UserAPI} from "../api/api";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const UPDATE_STATUS = 'UPDATE_STATUS';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const ADD_POST = 'profile-reducer/ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'profile-reducer/UPDATE-NEW-POST-TEXT';
+const UPDATE_STATUS = 'profile-reducer/UPDATE_STATUS';
+const SAVE_PHOTO_EXECUTOR = 'profile-reducer/SAVE_PHOTO_EXECUTOR';
+const SET_USER_PROFILE = 'profile-reducer/SET_USER_PROFILE';
 
 let initialState = {
     posts: [
-        {id: 2, message: 'It\'s my first post', likesCount: 11},
+        {id: 1, name:'', message: 'It\'s my first post'},
     ],
     profile: null,
     status: '',
 }
+
 const profileReducer = (state = initialState, action) => {
 
     switch(action.type) {
@@ -23,6 +25,21 @@ const profileReducer = (state = initialState, action) => {
         case UPDATE_STATUS: {
             return {...state, status: action.text }
         }
+        case SAVE_PHOTO_EXECUTOR: {
+            return {...state, profile: {...state.profile, photos: action.photos} }
+        }
+        case ADD_POST:
+            let newPost = {
+                id: {...state.id + 1},
+                name: action.name,
+                message: action.message
+            };
+            return {
+                ...state,
+                posts: [newPost, ...state.posts]
+            }
+
+
 
         default:  return state;
     }
@@ -30,14 +47,35 @@ const profileReducer = (state = initialState, action) => {
 
 
 const setUserProfileExecutor = (profile) => ({type: SET_USER_PROFILE, profile})
-export const addPostActionCreator = () => ({type: ADD_POST})
+const savePhotoExecutor = (photos) => ({type: SAVE_PHOTO_EXECUTOR, photos})
+export const addPostExecutor = (name, message) => ({type: ADD_POST, name, message})
 export const updateStatusExecutor = (text) => ({type: UPDATE_STATUS, text })
+
+export const addPost = (message) => (dispatch, getState) => {
+    const name = getState().profilePage.profile.fullName
+    dispatch(addPostExecutor(name, message))
+
+}
 
 export const getUserProfile = (userId) => (dispatch) => {
     UserAPI.setUserProfile(userId)
         .then(response => {
             dispatch(setUserProfileExecutor(response.data));
         });
+}
+export const savePhoto = (photos) => async (dispatch) => {
+    let response = await ProfileAPI.savePhoto(photos)
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoExecutor(response.data.data.photos));
+    }
+}
+export const saveData = (data) => async (dispatch, getState) => {
+    const userId = getState().auth.userId
+    console.log(userId)
+    let response = await ProfileAPI.saveData(data)
+    if (response.data.resultCode === 0) {
+        dispatch(getUserProfile(userId))
+    }
 }
 
 export const getUserStatus = (userId) => (dispatch) => {

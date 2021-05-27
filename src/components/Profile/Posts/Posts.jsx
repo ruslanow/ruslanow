@@ -7,7 +7,7 @@ import PostReduxForm from "./PostForm/PostForm";
 
 const PostItem = (props) => {
     return (
-        <div key={props.id}>
+        <div>
             <div className={styles.block}>
                 <div className={styles.profileInfo}>
                     <img src={logo} width="40px" height="40px" alt=""/>
@@ -24,16 +24,15 @@ const PostItem = (props) => {
 };
 
 const Post = React.memo(props => {
-
     let postElement = props.postsData
-        .map(p => <PostItem name={p.name} key={p.id} id={p.id} messagePost={p.messagePost}/>);
+        .map(p => <PostItem name={p.name} key={p.id} messagePost={p.message}/>);
 
     let addPost = (values) => {
         props.addPost(values.postMessage)
     }
 
     return (
-        <div key={props.id}>
+        <div>
             <div className={styles.addPost}>
                 <PostReduxForm onSubmit={addPost} />
             </div>

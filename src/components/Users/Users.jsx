@@ -1,9 +1,7 @@
 import React from 'react';
 import './Users.module.sass';
 import styles from "./Users.module.sass";
-import userPhoto from '../../assets/user.png';
 import {Preloader} from "../../common/Preloader/Preloader";
-import {NavLink} from "react-router-dom";
 import {Paginator} from "./Paginator";
 import {User} from "./User";
 

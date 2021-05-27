@@ -25,7 +25,6 @@ export const setInitializedStatus = () => ({ type: SET_INITIALIZED_STATUS})
 
 export const initializeApp = () => (dispatch) => {
     let promise = dispatch(setAuthUserData());
-
     Promise.all([promise])
         .then(() => {
             dispatch(setInitializedStatus());

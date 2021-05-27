@@ -7,10 +7,17 @@ import PostsContainer from "./Posts/PostsContainer";
 const Profile = (props) => {
     return (
         <div className={styles.wrapper}>
-            <ProfileInfo status={props.status} profile={props.profile} updateStatus={props.updateStatus} updateUserStatus={props.updateUserStatus}/>
-{/*
+
+            <ProfileInfo savePhoto = {props.savePhoto}
+                         saveData= {props.saveData}
+                         isOwner = {props.isOwner}
+                         status={props.status}
+                         profile={props.profile}
+                         updateStatus={props.updateStatus}
+                         updateUserStatus={props.updateUserStatus}/>
+
             <PostsContainer store={props.store}/>
-*/}
+
         </div>
     )
 }

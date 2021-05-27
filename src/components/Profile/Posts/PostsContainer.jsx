@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
 import './Posts.module.sass';
-import {addPost} from "../../../redux/addPostReducer";
 import Post from "./Posts";
+import {addPost} from "../../../redux/profile-reducer";
 
 let mapStateToProps = (state) => {
     return {
-        postsData: state.addPostPage.postsData,
+        postsData: state.profilePage.posts,
     };
 };
 

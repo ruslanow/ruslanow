@@ -1,10 +1,8 @@
 import './App.sass';
 import React, {Component} from 'react';
 import Body from "./components/Body/Body";
-import ChatContainer from "./components/Chat/ChatContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import {Route, BrowserRouter, withRouter} from 'react-router-dom';
-import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import Login from "./components/Login/Login";
 import {compose} from "redux";
@@ -12,6 +10,10 @@ import {connect, Provider} from "react-redux";
 import {initializeApp} from "./redux/app-reducer";
 import {Preloader} from "./common/Preloader/Preloader";
 import store from "./redux/reduxStore";
+import {withSuspense} from "./hoc/withSuspense";
+
+const ChatContainer = React.lazy(() => import("./components/Chat/ChatContainer"))
+const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"))
 
 
 class App extends Component {
@@ -35,9 +37,9 @@ class App extends Component {
 
                             <Route path='/' render={() => <HeaderContainer/>}/>
                             <Route exact path='/friends' render={() => <UsersContainer store={this.props.store}/>}/>
-                            <Route path='/chat' render={() => <ChatContainer store={this.props.store}/>}/>
-                            <Route path='/profile/:userId' render={() => <ProfileContainer store={this.props.store}/>}/>
-                            <Route exact path='/profile' render={() => <ProfileContainer store={this.props.store}/>}/>
+                            <Route path='/chat' render={withSuspense(ChatContainer)}/>
+                            <Route path='/profile/:userId' render={withSuspense(ProfileContainer)} />
+                            <Route exact path='/profile' render={withSuspense(ProfileContainer)} />
 
                             <Route exact path={["/", "/all-announcement"]}
                                    render={() => <Body store={this.props.store}/>}/>

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Login.module.sass"
-import {Field, reduxForm} from "redux-form";
+import {reduxForm} from "redux-form";
 import {required} from "../../utils/validators/validators";
 import {fieldComponent, Input} from "../../common/FormsControl/FormsControl";
 import {login} from "../../redux/auth-reducer";
@@ -13,8 +13,6 @@ let Login = (props) => {
 
     const onSubmit = (formData) => {
         props.login(formData.login, formData.password, false)
-        console.log(formData.login, formData.password, false)
-        console.log(formData)
     }
     if (props.isAuth){
         return <Redirect to='/profile' />
